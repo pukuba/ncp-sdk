@@ -34,3 +34,15 @@ export interface SendSMSInput {
     receiver: string
     content: string
 }
+
+export interface SendMailResponse {
+    requestId: string
+    count: number
+}
+
+export interface SendSMSResponse {
+    statusCode: string
+    statusName: string
+    requestId: string
+    requestTime: string
+}

@@ -1,5 +1,11 @@
-import { NcloudSDKInput, SendMailInput, SendSMSInput } from "./models"
-import axios, { AxiosResponse } from "axios"
+import {
+    NcloudSDKInput,
+    SendMailInput,
+    SendSMSInput,
+    SendMailResponse,
+    SendSMSResponse,
+} from "./models"
+import axios from "axios"
 import crypto from "crypto-js"
 
 /**
@@ -34,22 +40,21 @@ export class NcloudSDK {
      * @param {string} args.title Email title
      * @param {string} args.content Email content
      * @param {string | undefined} args.senderName Sender name
-     * @return {AxiosResponse} The AxiosResponse value
+     * @return {AxiosResponse.data} The AxiosResponse.data value
      */
-    async sendMail(args: SendMailInput): Promise<AxiosResponse> {
+    async sendMail(args: SendMailInput): Promise<SendMailResponse> {
         const { sender, receiver, content, title, senderName } = args
-        return await axios
-            .post(`https://mail.apigw.ntruss.com/api/v1/mails`, {
-                headers: this.createHeader("mail"),
-                data: JSON.stringify({
-                    senderAddress: sender,
-                    senderName: senderName || sender,
-                    title,
-                    body: content,
-                    recipients: [{ address: receiver, type: "R" }],
-                }),
-            })
-            .then((res) => res.data)
+        return await axios(`https://mail.apigw.ntruss.com/api/v1/mails`, {
+            method: "POST",
+            headers: this.createHeader("mail"),
+            data: JSON.stringify({
+                senderAddress: sender,
+                senderName: senderName || sender,
+                title,
+                body: content,
+                recipients: [{ address: receiver, type: "R" }],
+            }),
+        }).then((res) => res.data)
     }
 
     /**
@@ -57,13 +62,15 @@ export class NcloudSDK {
      * @param {string} args.sender Sender phone number
      * @param {string} args.receiver Receiver phone number
      * @param {string} args.content SMS content
-     * @return {AxiosResponse} The AxiosResponse value
+     * @return {AxiosResponse.data} The AxiosResponse.data value
      */
-    async sendSMS(args: SendSMSInput): Promise<AxiosResponse> {
+    async sendSMS(args: SendSMSInput): Promise<SendSMSResponse> {
         if (!this.smsKey) throw new Error("SMS key is not defined")
         const { sender, receiver, content } = args
-        return await axios
-            .post(`https://sens.apigw.ntruss.com/sms/v2/services/${this.smsKey}/messages`, {
+        return await axios(
+            `https://sens.apigw.ntruss.com/sms/v2/services/${this.smsKey}/messages`,
+            {
+                method: "POST",
                 headers: this.createHeader("sms"),
                 data: JSON.stringify({
                     type: "SMS",
@@ -73,8 +80,8 @@ export class NcloudSDK {
                     content: content,
                     messages: [{ to: receiver }],
                 }),
-            })
-            .then((res) => res.data)
+            }
+        ).then((res) => res.data)
     }
 
     private createHeader(service: string) {
