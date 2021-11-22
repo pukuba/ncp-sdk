@@ -2,11 +2,23 @@
 
 [![codecov](https://codecov.io/gh/pukuba/ncp-sdk/branch/master/graph/badge.svg?token=JRJ98QC1M3)](https://codecov.io/gh/pukuba/ncp-sdk)
 [![Build Status](https://app.travis-ci.com/pukuba/ncp-sdk.svg?token=Qfh1H9rnMEdALKheMgyU&branch=master)](https://app.travis-ci.com/pukuba/ncp-sdk)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-| Class     | Method                           | Description                                                                  |
-| --------- | -------------------------------- | ---------------------------------------------------------------------------- |
-| NcloudSDK | [**sendMail**](src/models.ts#19) | NCP의 Cloud Outbound Mailer를 이용하여 메일을 전송합니다                     |
-| NcloudSDK | [**sendSMS**](src/models.ts#32)  | NCP의 Simple & Easy Notification Service를 이용하여 문자 메세지를 전송합니다 |
+## install
+
+```
+npm install ncp-sdk
+yarn add ncp-sdk
+```
+
+## Docs
+
+| Class     | Method                            | Description                                                                  |
+| --------- | --------------------------------- | ---------------------------------------------------------------------------- |
+| NcloudSDK | [**sendMail**](src/models.ts#L19) | NCP의 Cloud Outbound Mailer를 이용하여 메일을 전송합니다                     |
+| NcloudSDK | [**sendSMS**](src/models.ts#L32)  | NCP의 Simple & Easy Notification Service를 이용하여 문자 메세지를 전송합니다 |
+
+<hr>
 
 ## Mail 전송 예시
 
