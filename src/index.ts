@@ -3,7 +3,6 @@ import axios, { AxiosResponse } from "axios"
 import crypto from "crypto-js"
 
 /**
- * module description
  * @module NcloudSDK
  */
 export class NcloudSDK {

@@ -1,7 +1,7 @@
 /**
- * @param {string} accessKey
- * @param {string} secretKey
- * @param {string | undefined} smsKey
+ * @param {string} accessKey Naver Cloud Platform access key
+ * @param {string} secretKey Naver Cloud Platform secret key
+ * @param {string | undefined} smsKey Naver Cloud Platform sms key
  */
 export interface NcloudSDKInput {
     accessKey: string
