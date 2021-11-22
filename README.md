@@ -1,5 +1,8 @@
 # ncp-sdk
 
+[![codecov](https://codecov.io/gh/pukuba/ncp-sdk/branch/master/graph/badge.svg?token=JRJ98QC1M3)](https://codecov.io/gh/pukuba/ncp-sdk)
+[![Build Status](https://app.travis-ci.com/pukuba/ncp-sdk.svg?token=Qfh1H9rnMEdALKheMgyU&branch=master)](https://app.travis-ci.com/pukuba/ncp-sdk)
+
 | Class     | Method                           | Description                                                                  |
 | --------- | -------------------------------- | ---------------------------------------------------------------------------- |
 | NcloudSDK | [**sendMail**](src/models.ts#19) | NCP의 Cloud Outbound Mailer를 이용하여 메일을 전송합니다                     |

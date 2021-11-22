@@ -1,0 +1,24 @@
+language: node_js
+
+node_js:
+    - stable
+
+cache:
+    directories:
+        - node_modules
+
+branches:
+    only:
+        - master
+        - develop
+
+install:
+    - yarn global add codecov
+    - yarn install
+    - yarn add mocha ts-mocha @types/mocha dotenv assert @types/assert typescript @types/node nyc
+
+script:
+    - yarn coverage
+
+after_success:
+    - yarn codecov

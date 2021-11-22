@@ -2,13 +2,16 @@
     "name": "ncp-sdk",
     "version": "1.0.0",
     "description": "Naver Cloud Platform sdk",
-    "main": "src/index.ts",
+    "main": "dist/index.ts",
     "repository": "https://github.com/pukuba/ncp-sdk.git",
     "author": "pukuba",
     "license": "MIT",
     "scripts": {
         "build": "tsc -p .",
-        "start": "NODE_PATH=src/ nodemon --exec ts-node src/index.ts"
+        "start": "NODE_PATH=src/ nodemon --exec ts-node src/index.ts",
+        "test": "export NODE_ENV=test;NODE_PATH=src/ ts-mocha --timeout 10000 -p ./tsconfig.json src/test.ts --exit",
+        "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t ${CODECOV_TOKEN}",
+        "coverage": "export NODE_ENV=test;nyc --reporter=html yarn test"
     },
     "dependencies": {
         "@types/crypto-js": "^4.0.2",
