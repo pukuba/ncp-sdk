@@ -1,6 +1,6 @@
 {
     "name": "ncp-sdk",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Naver Cloud Platform sdk",
     "main": "dist/index.ts",
     "repository": "https://github.com/pukuba/ncp-sdk.git",
