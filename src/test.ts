@@ -91,7 +91,7 @@ describe("NcloudSDK Test", () => {
 				try {
 					await sdk.sendSMS({
 						sender: "01000000000",
-						receiver: "01000000000",
+						receiver: ["01000000000"],
 						content: "test content",
 					})
 				} catch (e: any) {

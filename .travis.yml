@@ -15,7 +15,6 @@ branches:
 install:
     - yarn global add codecov
     - yarn install
-    - yarn add mocha ts-mocha @types/mocha dotenv assert @types/assert typescript @types/node nyc
 
 script:
     - yarn coverage
