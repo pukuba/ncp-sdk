@@ -1,6 +1,6 @@
 {
     "name": "ncp-sdk",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Naver Cloud Platform sdk",
     "main": "dist/index.js",
     "repository": "https://github.com/pukuba/ncp-sdk.git",
@@ -13,8 +13,10 @@
         "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t ${CODECOV_TOKEN}",
         "coverage": "export NODE_ENV=test;nyc --reporter=html yarn test"
     },
+    "devDependencies": {
+        "@types/crypto-js": "^4.0.2"
+    },
     "dependencies": {
-        "@types/crypto-js": "^4.0.2",
         "axios": "^0.24.0",
         "crypto-js": "^4.1.1"
     }

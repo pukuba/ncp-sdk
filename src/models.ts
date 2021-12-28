@@ -4,9 +4,9 @@
  * @param {string | undefined} smsKey Naver Cloud Platform sms key
  */
 export interface NcloudSDKInput {
-    accessKey: string
-    secretKey: string
-    smsKey?: string
+	accessKey: string
+	secretKey: string
+	smsKey?: string
 }
 
 /**
@@ -17,11 +17,11 @@ export interface NcloudSDKInput {
  * @param {string | undefined} senderName Sender name
  */
 export interface SendMailInput {
-    sender: string
-    receiver: string
-    title: string
-    content: string
-    senderName?: string
+	sender: string
+	receiver: string
+	title: string
+	content: string
+	senderName?: string
 }
 
 /**
@@ -30,19 +30,19 @@ export interface SendMailInput {
  * @param {string} content SMS content
  */
 export interface SendSMSInput {
-    sender: string
-    receiver: string
-    content: string
+	sender: string
+	receiver: string[]
+	content: string
 }
 
 export interface SendMailResponse {
-    requestId: string
-    count: number
+	requestId: string
+	count: number
 }
 
 export interface SendSMSResponse {
-    statusCode: string
-    statusName: string
-    requestId: string
-    requestTime: string
+	statusCode: string
+	statusName: string
+	requestId: string
+	requestTime: string
 }
