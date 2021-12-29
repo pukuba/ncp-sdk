@@ -70,11 +70,9 @@ export class NcloudSDK {
 				from: sender,
 				contentType: "COMM",
 				content: content,
-				messages: [
-					receiver.map(x => {
-						return { to: x }
-					}),
-				],
+				messages: receiver.map(x => {
+					return { to: x }
+				}),
 			}),
 		}).then(res => res.data)
 	}
